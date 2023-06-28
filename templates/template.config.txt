@@ -1,7 +1,7 @@
 token -> your discord bot token goes there.
 guild_id -> id of guild (server discord) in which bot is running.
-client_id -> bot discord id (right click on your bot and copy it's doscord id - for example: 308227275831246849)
-username_pattern -> specified server username patterd needed to use bot
+client_id -> bot discord id (right click on your bot and copy it's discord id - for example: 308227275831246849)
+username_pattern -> specified server username pattern needed to use bot
 
 database -> database connection settings
     host -> your database host (for example: localhost or 127.0.0.1)
@@ -17,24 +17,24 @@ messages -> to set this run /send_messages and restart bot (try it several times
     duty_status -> message id of message with users that are on duty
     week_summary -> message id of message with week summary
 
-board_roles -> id of roles that have admin acces to bot (copy it from server role settings)
+board_roles -> id of roles that have admin access to bot (copy it from server role settings)
 special_roles -> id of roles that can use detour duty option - explained below (copy it from server role settings)
-cast_roles -> id of roles that have basic acces to bot - add all roles icluding the board_roles and special_roles (copy it from server role settings)
+cast_roles -> id of roles that have basic access to bot - add all roles including the board_roles and special_roles (copy it from server role settings)
 start_roles -> id of roles that will be added to user when he join server (copy it from server role settings)
 duty_role -> id of role that will be added to user when he is on duty (copy it from server role settings)
 
-minus_yeras -> how many years will be substracted from accual yerar - for when I'm writing 2023 (for example: if your RP happens in 1900 set it to 123)
+minus_yeras -> how many years will be subtracted from actual year - for when I'm writing 2023 (for example: if your RP happens in 1900 set it to 123)
 
 norms -> norms for users
     norm -> how many hours user should have
     bonus -> how many hours user should have to get bonus
 
-is_detour -> if you want to set last option to "detour" that can be accesed by users with special_roles and board_roles set it to true
+is_detour -> if you want to set last option to "detour" that can be accessed by users with special_roles and board_roles set it to true
 
 options -> options that will be displayed in user thread - add as many as you want
     emoji -> emoji that will be displayed before option
     label -> label that will be displayed after emoji
-    special -> if option is special - it means that can be selecet only individually (you can't select it with other options - it will be displayed only one by one)
+    special -> if option is special - it means that can be select only individually (you can't select it with other options - it will be displayed only one by one)
 
 embed_colors -> colors of embeds (default are set)
 
