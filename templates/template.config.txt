@@ -1,0 +1,112 @@
+token -> your discord bot token goes there.
+guild_id -> id of guild (server discord) in which bot is running.
+client_id -> bot discord id (right click on your bot and copy it's doscord id - for example: 308227275831246849)
+username_pattern -> specified server username patterd needed to use bot
+
+database -> database connection settings
+    host -> your database host (for example: localhost or 127.0.0.1)
+    user -> your database user to login with (for example: root)
+    password -> your database user password
+    database -> your database name to connect to (default if you has used template: ams_hours_bot)
+
+channels -> you need to set them manually (right click on channel and copy it's id)
+    duty_status -> channel id where bot will send message with users that are on duty
+    threads -> channel id where bot will create users threads and send week summary message
+
+messages -> to set this run /send_messages and restart bot (try it several times if it won't work)
+    duty_status -> message id of message with users that are on duty
+    week_summary -> message id of message with week summary
+
+board_roles -> id of roles that have admin acces to bot (copy it from server role settings)
+special_roles -> id of roles that can use detour duty option - explained below (copy it from server role settings)
+cast_roles -> id of roles that have basic acces to bot - add all roles icluding the board_roles and special_roles (copy it from server role settings)
+start_roles -> id of roles that will be added to user when he join server (copy it from server role settings)
+duty_role -> id of role that will be added to user when he is on duty (copy it from server role settings)
+
+minus_yeras -> how many years will be substracted from accual yerar - for when I'm writing 2023 (for example: if your RP happens in 1900 set it to 123)
+
+norms -> norms for users
+    norm -> how many hours user should have
+    bonus -> how many hours user should have to get bonus
+
+is_detour -> if you want to set last option to "detour" that can be accesed by users with special_roles and board_roles set it to true
+
+options -> options that will be displayed in user thread - add as many as you want
+    emoji -> emoji that will be displayed before option
+    label -> label that will be displayed after emoji
+    special -> if option is special - it means that can be selecet only individually (you can't select it with other options - it will be displayed only one by one)
+
+embed_colors -> colors of embeds (default are set)
+
+error_headers -> headers that will be displayed when user will try to use command that he can't use or it will be used in wrong way
+succes_headers -> headers that will be displayed when everything will be ok
+
+
+
+------ TEMPLATE (save it to the config.json file in main directory - next to index.js) ------
+
+{
+    "token": "",
+    "guild_id": "",
+    "client_id": "",
+    "username_pattern": "[A-Z]\\w+( [A-Z]'?\\w+)?",
+    "database": {
+        "host": "",
+        "user": "",
+        "password": "",
+        "database": ""
+    },
+    "channels": {
+        "duty_status": "",
+        "threads": ""
+    },
+    "messages": {
+        "duty_status": "",
+        "week_summary": ""
+    },
+    "board_roles": [
+        ""
+    ],
+    "special_roles": [
+        ""
+    ],
+    "cast_roles": [
+        ""
+    ],
+    "start_roles": [
+        ""
+    ],
+    "duty_role": null
+    "minus_yeras": 0,
+    "norms": {
+        "norm": 0,
+        "bonus": 0
+    },
+    "is_detour": false,
+    "options": [
+        {
+            "emoji": "❔",
+            "label": "Template zone",
+            "special": false
+        },
+    ],
+    "embed_colors": {
+        "default": "#D1B592",
+        "welcome": "#DFE68A",
+        "farewell": "#D19C92",
+        "error": "#D10000",
+        "succes": "#00D100",
+        "info": "#4F4FCC",
+        "promotion": "#9CFF59",
+        "demotion": "#DD5353",
+        "no_norm": "#B80000",
+        "norm": "#61B000",
+        "bonus": "#D6A800"
+    },
+    "error_headers": [
+        "**Stop this is template!**",
+    ],
+    "succes_headers": [
+        "**Hurra this is template!**",
+    ]
+}

@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "discord.js": "^14.11.0",
+    "moment": "^2.29.4",
+    "mysql2": "^3.3.1"
+  }
+}
