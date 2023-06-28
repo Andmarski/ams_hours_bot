@@ -48,7 +48,7 @@ Keep in mind that the button will be locked until the user goes off duty also th
 | 10h 1m 1s    | Subtract max value     | -10:01:01      | 10:01:01 (-10:01:01) |
 | 1h 1h 1s     | -2h 2m 2s              | -2:02:02       | none (error)         |
         
-* You can summarize the time on duty of all users (it's called **week summary** but can be done in any time) by clicking button below week summary message.
+* You can summarize the time on duty of all users (it's called **week summary** but can be done in any time) by clicking button below week summary message and confirming it.
 
 ![Week summary](https://cdn.discordapp.com/attachments/757372887425613894/1123618699073552414/image.png)
 
