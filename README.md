@@ -38,6 +38,7 @@ You have access to all the functions of a regular user and:
 Keep in mind that the button will be locked until the user goes off duty also there are limitations:
     * A maximum of **24 hours** can be added to one log.
     * The maximum amount of log time can be subtracted, so the subtraction result is **equals 0**.
+        
         #### Example 
         | Time on duty | Hours to add/subtract  | Required input | Result in log        |
         |--------------|------------------------|----------------|----------------------|
@@ -46,6 +47,7 @@ Keep in mind that the button will be locked until the user goes off duty also th
         | 0h 0m 3s     | Add max value          | 24:00:00       | 0:00:03 (24:00:00)   |
         | 10h 1m 1s    | Subtract max value     | -10:01:01      | 10:01:01 (-10:01:01) |
         | 1h 1h 1s     | -2h 2m 2s              | -2:02:02       | none (error)         |
+        
 * You can summarize the time on duty of all users (it's called **week summary** but can be done in any time) by clicking button below week summary message.
 
 ![Week summary](https://cdn.discordapp.com/attachments/757372887425613894/1123618699073552414/image.png)
