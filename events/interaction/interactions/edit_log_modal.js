@@ -2,7 +2,7 @@ const { connection } = require("../../../database");
 const { duration, hasRole, colors: { red, green } } = require("../../../source/basic");
 const { sendSuccesEmbed } = require("../../../source/embeds");
 const { threadSummaryEmbed } = require("../../../source/components");
-const { cast_roles } = require("../../../config.json");
+const { cast_roles, minus_years } = require("../../../config.json");
 const { countHours } = require("../../../source/elements");
 const { codeBlock } = require("discord.js");
 const moment = require("moment");
@@ -13,13 +13,12 @@ module.exports = async (client, interaction) => {
         const [log_to_update] = await connection.execute("SELECT * FROM logs INNER JOIN users ON logs.discord_id = users.discord_id WHERE message_id = ?", [interaction.message.id]);
         const log_message = await interaction.channel.messages.fetch(interaction.message.id);
         const emojis = log_message.content.split(" ").pop().replace("\n```", "");
+        const log_time = log_to_update[0].after + after_and_after[0].before;
 
         if(hours_to_add[0] == '-') {
             var hours_to_add = hours_to_add.replace("-", "");
             hours_to_add = hours_to_add.split(":");
             hours_to_add = -1 * (hours_to_add[0] * 3600 + hours_to_add[1] * 60 + hours_to_add[2] * 1);
-
-            const log_time = (log_to_update[0].after) ? log_to_update[0].after + after_and_after[0].before : log_to_update[0].before;
 
             if(log_time + hours_to_add < 0) return;
 
@@ -30,9 +29,7 @@ module.exports = async (client, interaction) => {
             var hours_to_add = hours_to_add.split(":");
             hours_to_add = hours_to_add[0] * 3600 + hours_to_add[1] * 60 + hours_to_add[2] * 1;
 
-            const log_time = (log_to_update[0].after) ? log_to_update[0].after + after_and_after[0].before : log_to_update[0].before;
-
-            await log_message.edit(codeBlock(`Wejście: ${log_to_update[0].entry}\nZejście: ${log_to_update[0].exit}\nCzas służby: ${duration(moment.duration(log_time, "second"))} (+${duration(moment.duration(hours_to_add, "second"))})\nMiejsce pełnienia służby: ${emojis}`));
+            await log_message.edit(codeBlock(`Wejście: ${moment(moment(log_to_update[0].entry, "HH:mm:ss DD.MM.YYYYr.").subtract(minus_years, "year")).format("HH:mm:ss DD.MM.YYYYr.")}\nZejście: ${moment(moment(log_to_update[0].exit, "HH:mm:ss DD.MM.YYYYr.").subtract(minus_years, "year")).format("HH:mm:ss DD.MM.YYYYr.")}\nCzas służby: ${duration(moment.duration(log_time, "second"))} (+${duration(moment.duration(hours_to_add, "second"))})\nMiejsce pełnienia służby: ${emojis}`));
 
             console.log(`${green("Dodano")} ${hours_to_add}s do logu.`);
         }

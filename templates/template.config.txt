@@ -23,7 +23,7 @@ cast_roles -> id of roles that have basic access to bot - add all roles includin
 start_roles -> id of roles that will be added to user when he join server (copy it from server role settings)
 duty_role -> id of role that will be added to user when he is on duty (copy it from server role settings)
 
-minus_yeras -> how many years will be subtracted from actual year - for when I'm writing 2023 (for example: if your RP happens in 1900 set it to 123)
+minus_years -> how many years will be subtracted from actual year - for when I'm writing 2023 (for example: if your RP happens in 1900 set it to 123)
 
 norms -> norms for users
     norm -> how many hours user should have
@@ -77,7 +77,7 @@ succes_headers -> headers that will be displayed when everything will be ok
         ""
     ],
     "duty_role": null
-    "minus_yeras": 0,
+    "minus_years": 0,
     "norms": {
         "norm": 0,
         "bonus": 0
