@@ -53,7 +53,7 @@ Keep in mind that the button will be locked until the user goes off duty also th
 ![Week summary](https://cdn.discordapp.com/attachments/757372887425613894/1123618699073552414/image.png)
 
 * You can delete user from database in **three ways**:
-    * By deleting message with user thread in `thread_channel` (don't work for older messages!- caused by Discord)
+    * By deleting message with user thread in `thread_channel` (don't work for older messages! - caused by Discord)
     * By deleting his thread in `thread_channel`
     * By kicking him from the server
 
