@@ -6,7 +6,7 @@ Let's say you are the head of some faction/company on an RP server or you just h
 ## How to install?
 1. Make sure you have NodeJS and MySQL database installed on your bot hosting/server device.
 2. Download this repository and go to `template/` folder, then import `template.database.sql` file to your database and prepare `config.json` with instructions given in `template.config.txt` and save it in main bot directory.
-3. Open bot directory in NodeJS command line and type `node .` (Personally I recommend installing [forever](https://www.npmjs.com/package/forever) for better bot stability - then run always run it with `forever .`)
+3. Open bot directory in NodeJS command line and type `node .` (Personally I recommend installing [forever](https://www.npmjs.com/package/forever) for better bot stability - then always run it with `forever .`)
 4. Don't forget to type `/send_messages` command on any channel on you discord server. (it's also described in `template.config.txt`)
 
 ## How to use?
