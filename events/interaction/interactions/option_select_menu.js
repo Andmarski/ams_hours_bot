@@ -22,8 +22,8 @@ module.exports = async (client, interaction) => {
         const log_message = await thread.send(defaultLog(moment(now, "HH:mm:ss DD.MM.YYYYr.").subtract(minus_years, "year").format("HH:mm:ss DD.MM.YYYYr."), formated_options));
 
         Promise.all([
-            connection.execute("INSERT INTO logs (message_id, discord_id, entry) VALUES (?, ?, ?)", [log_message.id, interaction.member.id, now]),
-            connection.execute("INSERT INTO on_duty (discord_id, first_zone, second_zone) VALUES (?, ?, ?)", [interaction.member.id, ...(interaction.values.length == 1) ? [interaction.values[0], null] : (config_options[interaction.values[0]].special == true) ? [interaction.values[0], null] : (config_options[interaction.values[1]].special == true) ? [interaction.values[1], null] : [interaction.values[0], interaction.values[1]]])
+            await connection.execute("INSERT INTO logs (message_id, discord_id, entry) VALUES (?, ?, ?)", [log_message.id, interaction.member.id, now]),
+            await connection.execute("INSERT INTO on_duty (discord_id, first_zone, second_zone) VALUES (?, ?, ?)", [interaction.member.id, ...(interaction.values.length == 1) ? [interaction.values[0], null] : (config_options[interaction.values[0]].special == true) ? [interaction.values[0], null] : (config_options[interaction.values[1]].special == true) ? [interaction.values[1], null] : [interaction.values[0], interaction.values[1]]])
         ]);
 
         thread_starter_message.edit({ components: components });
@@ -31,7 +31,7 @@ module.exports = async (client, interaction) => {
 
         console.log(`Użytkownik ${yellow(interaction.user.tag)} ${green("wszedł")} na służbę.`);
     } else {
-        connection.execute("UPDATE on_duty SET first_zone = ?, second_zone = ? WHERE discord_id = ?", [...(interaction.values.length == 1) ? [interaction.values[0], null] : (config_options[interaction.values[0]].special == true) ? [interaction.values[0], null] : (config_options[interaction.values[1]].special == true) ? [interaction.values[1], null] : [interaction.values[0], interaction.values[1]], interaction.member.id]);
+        await connection.execute("UPDATE on_duty SET first_zone = ?, second_zone = ? WHERE discord_id = ?", [...(interaction.values.length == 1) ? [interaction.values[0], null] : (config_options[interaction.values[0]].special == true) ? [interaction.values[0], null] : (config_options[interaction.values[1]].special == true) ? [interaction.values[1], null] : [interaction.values[0], interaction.values[1]], interaction.member.id]);
 
         console.log(`Zmieniono strefy użytkownika ${yellow(interaction.user.tag)} na ${blue(`${interaction.values[0]}${interaction.values.length == 2 ? `,${interaction.values[1]}` : ""}.`)}`);
     }
