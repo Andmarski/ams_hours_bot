@@ -36,8 +36,8 @@ You have access to all the functions of a regular user and:
 ![Editing log](https://cdn.discordapp.com/attachments/1001079843217219624/1123610490103418970/image.png)
 
 Keep in mind that the button will be locked until the user goes off duty also there are limitations:
-    * A maximum of **24 hours** can be added to one log.
-    * The maximum amount of log time can be subtracted, so the subtraction result is **equals 0**.
+   * A maximum of **24 hours** can be added to one log.
+   * The maximum amount of log time can be subtracted, so the subtraction result is **equals 0**.
     
 #### Example       
 | Time on duty | Hours to add/subtract  | Required input | Result in log        |
