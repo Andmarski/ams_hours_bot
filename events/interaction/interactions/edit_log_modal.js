@@ -13,7 +13,7 @@ module.exports = async (client, interaction) => {
         const [log_to_update] = await connection.execute("SELECT * FROM logs INNER JOIN users ON logs.discord_id = users.discord_id WHERE message_id = ?", [interaction.message.id]);
         const log_message = await interaction.channel.messages.fetch(interaction.message.id);
         const emojis = log_message.content.split(" ").pop().replace("\n```", "");
-        const log_time = log_to_update[0].after + after_and_after[0].before;
+        const log_time = log_to_update[0].after + log_to_update[0].before;
 
         if(hours_to_add[0] == '-') {
             var hours_to_add = hours_to_add.replace("-", "");
